@@ -1,6 +1,11 @@
-SRCS    = 	main_philo.c
-
-
+SRCS    = 	main_philo.c\
+			philo_utils.c\
+			philo_time.c\
+			philo_init.c\
+			philo_check_death.c\
+			philo.routine.c\
+			philo.thread.c\
+			philo_destroy.c
 
 DIR_SRC_PHILO = ./sources/srcs_philo/
 OBJ	= ${SRCS:.c=.o}
@@ -11,7 +16,7 @@ DEPS = $(addprefix $(DIR_OBJ), $(DEP))
 NAME = philo
 
 HEADERS	= -I includes
-CC		= gcc
+CC		= gcc -pthread -g
 CFLAGS	= -MMD -Wall -Wextra -Werror
 
 ${NAME} : ${OBJS}
